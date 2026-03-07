@@ -1,0 +1,33 @@
+# dependencies
+node_modules/
+
+# production build
+dist/
+
+# environment variables
+.env
+.env.local
+.env.development
+.env.production
+
+# logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# editor files
+.vscode/
+.idea/
+.DS_Store
+
+# system files
+Thumbs.db
+
+# vite cache
+node_modules/.vite
+
+# temporary files
+*.tmp
+*.temp
