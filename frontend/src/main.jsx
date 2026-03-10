@@ -9,6 +9,7 @@ import "./styles/login.css";
 import "./styles/dashboard.css";
 import "./styles/panchayatProfile.css";
 import "./styles/panchayatActivities.css";
+import "./styles/leaderBoard.css";
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
