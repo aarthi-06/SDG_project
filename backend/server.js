@@ -1,6 +1,8 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
+
 
 const { connectDB } = require("./config/db");
 
@@ -10,7 +12,12 @@ const profileRoutes = require("./routes/profileRoutes");
 const activityRoutes = require("./routes/activityRoutes");
 const indicatorRoutes = require("./routes/indicatorRoutes");
 const leaderboardRoutes = require("./routes/leaderboardRoutes");
+const collectorReviewRoutes = require("./routes/collectorReviewRoutes");
+const dashboardRoutes =
+  require("./routes/dashboardRoutes");
 
+  const notificationRoutes =
+  require("./routes/notificationRoutes");
 const app = express();
 
 app.use(
@@ -32,6 +39,22 @@ app.use("/profiles", profileRoutes);
 app.use("/activities", activityRoutes);
 app.use("/indicators", indicatorRoutes);
 app.use("/leaderboard", leaderboardRoutes);
+app.use(
+  "/collector-reviews",
+  collectorReviewRoutes
+);
+app.use(
+  "/notifications",
+  notificationRoutes
+);
+
+
+app.use(
+  "/uploads",
+  express.static(path.join(__dirname, "uploads"))
+);
+
+app.use("/dashboard", dashboardRoutes);
 
 const PORT = process.env.PORT || 5000;
 

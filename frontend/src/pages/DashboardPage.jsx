@@ -1,7 +1,17 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Building2, BarChart3, Leaf, MapPinned, LogOut, ShieldCheck } from "lucide-react";
 import { authFetch } from "../services/authFetch";
+import {
+  Building2,
+  BarChart3,
+  Leaf,
+  MapPinned,
+  LogOut,
+  ShieldCheck,
+  ClipboardCheck
+} from "lucide-react";
+
+import NotificationBell from "../components/NotificationBell";
 
 function DashboardPage() {
   const navigate = useNavigate();
@@ -51,23 +61,36 @@ function DashboardPage() {
   return (
     <div className="dashboard-shell">
       <header className="dashboard-topbar">
-        <div className="dashboard-topbar__left">
-          <div className="dashboard-badge-icon">
-            <ShieldCheck size={22} />
-          </div>
-          <div>
-            <h1 className="dashboard-title">SDG Action Hub Dashboard</h1>
-            <p className="dashboard-subtitle">
-              Welcome {user?.username} • {user?.role} • {user?.district}
-            </p>
-          </div>
-        </div>
+    <div className="dashboard-topbar__left">
+      <div className="dashboard-badge-icon">
+        <ShieldCheck size={22} />
+      </div>
 
-        <button className="dashboard-logout-btn" onClick={handleLogout}>
-          <LogOut size={18} />
-          Logout
-        </button>
-      </header>
+      <div>
+        <h1 className="dashboard-title">
+          SDG Action Hub Dashboard
+        </h1>
+
+        <p className="dashboard-subtitle">
+          Welcome {user?.username} • {user?.role} • {user?.district}
+        </p>
+      </div>
+    </div>
+
+    <div className="dashboard-topbar__right">
+      {user?.role === "panchayat_official" && (
+        <NotificationBell />
+      )}
+
+      <button
+        className="dashboard-logout-btn"
+        onClick={handleLogout}
+      >
+        <LogOut size={18} />
+        Logout
+      </button>
+    </div>
+  </header>
 
       <section className="dashboard-nav-cards">
         <button className="dashboard-nav-card dashboard-nav-card--active">
@@ -99,6 +122,21 @@ function DashboardPage() {
             <p>See ranked panchayat performance</p>
           </div>
         </button>
+
+
+        {(user?.role === "district_collector" || user?.role === "admin") && (
+  <button
+    className="dashboard-nav-card"
+    onClick={() => navigate("/collector/reviews")}
+  >
+    <ClipboardCheck size={26} />
+
+    <div>
+      <h3>Evidence Review</h3>
+      <p>Review AI-flagged activity evidence</p>
+    </div>
+  </button>
+)}
       </section>
 
       <section className="dashboard-section-head">

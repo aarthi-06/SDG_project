@@ -576,3 +576,30 @@
   background: linear-gradient(90deg, #2ecc71, #00b4d8);
   transition: width 0.4s ease;
 }
+
+
+.dashboard-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 28px;
+}
+
+.dashboard-topbar__left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.dashboard-topbar__right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.dashboard-logout-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}

@@ -7,6 +7,7 @@ import LeaderboardPage from "../pages/LeaderboardPage";
 import PanchayatProfilePage from "../pages/PanchayatProfilePage";
 import ProtectedRoute from "./ProtectedRoute";
 import PanchayatActivitiesPage from "../pages/PanchayatActivitiesPage";
+import CollectorReviewPage from "../pages/CollectorReviewPage";
 
 function AppRoutes() {
   return (
@@ -57,6 +58,16 @@ function AppRoutes() {
         <ProtectedRoute>
            <PanchayatActivitiesPage />
         </ProtectedRoute>
+        }
+      />
+
+
+      <Route
+        path="/collector/reviews"
+        element={
+          <ProtectedRoute>
+            <CollectorReviewPage />
+          </ProtectedRoute>
         }
       />
       

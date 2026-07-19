@@ -46,3 +46,5 @@ uploads/
 
 # Cache
 .cache/
+
+eng.traineddata
