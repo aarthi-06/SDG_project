@@ -180,6 +180,20 @@ const notificationsCollection =
                   imageQuality:
                     item.imageQuality,
 
+                    aiImageDetection:
+  item.aiImageDetection || {
+    detectionStatus:
+      item.fileType === "image"
+        ? "NOT_ANALYSED"
+        : "NOT_APPLICABLE",
+
+    aiGeneratedProbability: null,
+    confidence: null,
+    provider: null,
+    reason: null,
+    error: null
+  },
+
                   textVerificationStatus:
                     item.textVerificationStatus,
 
@@ -719,6 +733,20 @@ async function getReviewedActivities(
 
                   imageQuality:
                     item.imageQuality,
+
+                    aiImageDetection:
+  item.aiImageDetection || {
+    detectionStatus:
+      item.fileType === "image"
+        ? "NOT_ANALYSED"
+        : "NOT_APPLICABLE",
+
+    aiGeneratedProbability: null,
+    confidence: null,
+    provider: null,
+    reason: null,
+    error: null
+  },
 
                   textVerificationStatus:
                     item.textVerificationStatus,

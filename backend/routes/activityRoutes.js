@@ -7,7 +7,7 @@ const evidenceUpload = require("../middleware/evidenceUpload");
 const {
   createActivity,
   getActivitiesByVillage,
-  updateActivity,
+  
   deleteActivity
 } = require("../controllers/activityController");
 
@@ -24,11 +24,7 @@ router.get(
   getActivitiesByVillage
 );
 
-router.put(
-  "/:activityId",
-  authenticateToken,
-  updateActivity
-);
+
 
 router.delete(
   "/:activityId",
