@@ -603,3 +603,27 @@
   justify-content: center;
   gap: 8px;
 }
+
+
+
+.dashboard-topbar {
+  position: relative;
+  z-index: 1000;
+  overflow: visible;
+}
+
+.dashboard-topbar__right {
+  position: relative;
+  z-index: 1001;
+  overflow: visible;
+}
+
+.dashboard-nav-cards,
+.dashboard-section-head,
+.dashboard-search-wrap,
+.panchayat-card-grid,
+.panchayat-card,
+.dashboard-nav-card {
+  position: relative;
+  z-index: 1;
+}
